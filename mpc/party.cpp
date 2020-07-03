@@ -13,11 +13,9 @@ using namespace std;
 using namespace std;
 #endif
 
+#define AsOTSender(nPID1, nPID2)	 (nPID1<nPID2)
 
-#define AsOTSender(nPID1, nPID2)	\
-	( (nPID1<nPID2 && ((nPID2-nPID1)%2==1)) || (nPID1>nPID2 && ((nPID1-nPID2)%2 == 0)))
- 
-//#define AsOTSender(nPID1, nPID2)	 (nPID1<nPID2)
+
 
 CParty::CParty()
 {
@@ -388,6 +386,8 @@ BOOL CParty::MainThreadRunSendInputShare()
 		cout << " error: wrong input" << endl;
 		return FALSE;
 	}
+
+	cout << "nInputs=" << nInputs << ", " << "nEnd=" << nEnd << endl;
 	
 	int j=nStart;
 	int mask; 
@@ -399,11 +399,14 @@ BOOL CParty::MainThreadRunSendInputShare()
 			mask = (1 << k);
 			val = !!(vIn[i] & mask);
 			
+			cout << " (" << m_nPID << ") IN[" << j << "] = " << val << endl;
+			
 			for(int u=0; u<m_nNumParties; u++)
 			{
 				if( u != m_nPID )
 					val ^= vShares[u].GetBit(i*nBits+k);
 			}
+
 
 			m_pGates[j++].val = val; 
 		}
@@ -1031,6 +1034,7 @@ BOOL CParty::ComputeMultiplications()
  	for(;;)
 	{
 		// Generate OnGoing queues
+		
 		/*
 		os.str("");
 		os << " queue: " << m_queOnGoings.CurrSize() << " nodes " << endl;
@@ -1054,20 +1058,21 @@ BOOL CParty::ComputeMultiplications()
 					IsValueAssigned(pright->val) )
 				{
 						
-					//cout <<"in the condition!" << endl;
+					// cout <<"in the condition!" << endl;
 					if( parent->type == G_XOR )
 					{
 						parent->val = pleft->val ^ pright->val;
 						m_queOnGoings.AddCurr(parentid);
-						//cout <<"xor gate: adding (" << parentid << ") to the curr que" << endl;
+						// cout <<"xor gate: adding (" << parentid << ") to the curr que" << endl;
 					}
 					else
 					{
 						parent->val = GATE_ONGOING; 
 						m_queOnGoings.AddAlt(parentid);
-						//cout << "and gate: adding (" << parentid << ") to the alt queue" << endl;
+					
 						/*
-						 cout << "parentid = " << parentid 
+						cout << "and gate: adding (" << parentid << ") to the alt queue" << endl;
+						cout << "parentid = " << parentid 
 						<< ", type = "	<< (int) parent->type
 						<< ", val = " << (int) parent->val
 						<< ", leftid = " << parent->left
@@ -1075,7 +1080,7 @@ BOOL CParty::ComputeMultiplications()
 						<< ", rightid = " << parent->right
 						<< ", rightval = " << (int) m_pGates[parent->right].val
 						<< endl;
-						*/
+						*/	
 					}
 				}
 			}
@@ -1087,6 +1092,7 @@ BOOL CParty::ComputeMultiplications()
 		m_queOnGoings.Alternate();
 		if( m_queOnGoings.IsCurrEmpty() ) break;
 	 
+		
 		/*
 		os.str("");
 		os << " queue: " << m_queOnGoings.CurrSize() << " nodes " << endl;
@@ -1113,9 +1119,9 @@ BOOL CParty::ComputeMultiplications()
 	
 		m_nMultIdx += m_queOnGoings.CurrSize();
 
-		cout << "." << flush;
+		//cout << "." << flush;
 	}
-	cout << endl;
+	//cout << endl;
 
 	return TRUE;
 }
@@ -1134,12 +1140,12 @@ BOOL CParty::ThreadRunMultiplySender(int nRcvID)
 
 	int nRcvBytes = (nSize*2+7)/8;
 
-	//ostringstream os;
-
 	/*
+	ostringstream os;
 	os << " (" << nRcvID << ") receiving  " << nRcvBytes << " bytes... " << endl;
 	cout << os.str() << flush;
 	*/
+
 	sock.Receive(vRcv.GetArr(), nRcvBytes);
 	
 
@@ -1188,9 +1194,10 @@ BOOL CParty::ThreadRunMultiplySender(int nRcvID)
 
 	int nSndBytes = (nSize*4+7)/8;
 
-	//cout << os.str() << flush;
-
 	/*
+	cout << os.str() << flush;
+
+	
 	os.str("");
 	os << " (" << nRcvID << ") sending " << nSndBytes << " bytes" << endl;
 	cout << os.str() << flush;
@@ -1235,9 +1242,8 @@ BOOL CParty::ThreadRunMultiplyReceiver(int nSndID)
 		vSnd.Set2Bits(i, choice);
 	}
 
-	//ostringstream os;
-	
 	/*
+	ostringstream os;
 	os << " (" << nSndID << ") sending " << nSndBytes << " bytes" << endl;
 	cout << os.str() << flush;
 	*/
@@ -1246,11 +1252,13 @@ BOOL CParty::ThreadRunMultiplyReceiver(int nSndID)
 
 	int nRcvBytes = (nSize*4 - 1)/8 + 1;
 	
+	
 	/*
 	os.str("");
 	os << " (" << nSndID << ") receiving " << nRcvBytes << " bytes" << endl;
 	cout << os.str() << flush;
 	*/
+	
 	sock.Receive(vRcv.GetArr(), nRcvBytes);
 	
 	BYTE sr;
@@ -1266,6 +1274,7 @@ BOOL CParty::ThreadRunMultiplyReceiver(int nSndID)
 		sr ^= wwo.GetBit(j);
 		gmw.SetBit(j, sr); 
 
+		
 		/*
 		os   << " (" << nSndID << ") "
 			 <<"WW: ot out (" << nodeid
@@ -1291,17 +1300,19 @@ BOOL CParty::ThreadRunMultiplyReceiver(int nSndID)
 
 BOOL CParty::ComputeOutput()
 {
-	/*
+	
 	for(int i=0; i<m_pCircuit->GetNumGates(); i++ )
 	{
 		GATE* gate = m_pCircuit->Gates() + i;
+		/*
 		cout << "gate(" << i <<"): type = " << (int) gate->type
 			 << " leftval= " << ((gate->left >= 0)? m_pGates[gate->left].val : -1 )
 			 << " rightval= " <<((gate->right >= 0)? m_pGates[gate->right].val: -1 )
 			 << " val= " << (int) gate->val
 			 << endl;
+		*/
 	}
-	*/
+	
 	
 	BOOL bSuccess;
 
@@ -1359,10 +1370,10 @@ BOOL CParty::ThreadRunRecvOutputShare(int nSndID)
 	int o_size = o_end - o_start + 1;
 	int nSizeBytes = (o_size+7)/8;
 	
-	/*
+	
 	cout << " ThreadRunRecvOutputShare(" << nSndID 
 		 <<	"): receiving " << nSizeBytes << " bytes" << endl;
-	*/
+
 	m_vSockets[nSndID].Receive(v.GetArr(), nSizeBytes);
 
 #ifdef IMPL_PRIVIATE_CHANNEL

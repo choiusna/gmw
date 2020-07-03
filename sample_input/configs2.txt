@@ -2,14 +2,9 @@ num_parties 3
 pid	1
 address-book	address.txt
 
-num_input 1000
-input_range	1000
-input inputs1000.txt
-circuit circ1000.bin
-
-%num_input 10
-%input inputs10.txt
-%input_range 10
+create-circuit p2p 10 10
+input inputs10.txt
+num_input 10
 
 seed 2323967942723790652936980	
 

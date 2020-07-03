@@ -5,14 +5,10 @@ pid	2
 
 address-book	address.txt
 
-%num_input 10 
-%input inputc10.txt
-%input_range 10
+create-circuit p2p 10 10
+num_input	20
+input inputc10.txt
 
-num_input 1000
-input inputc1000.txt
-input_range 1000
-circuit	circ1000.bin
 
 seed 4373984170943781378434349	
 
