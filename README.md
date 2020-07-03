@@ -17,4 +17,5 @@ Compiling the code
 
 Testing the code 
 > cd sample_input
+
 > bash run.sh
