@@ -10,3 +10,11 @@ People
 - Jonathan Katz, Professor, Computer Science Department, University of Maryland
 - Tal Malkin, Professor, Computer Science Department, Columbia University
 - Dan Rubenstein, Professor, Computer Science Department, Columbia University
+
+
+Compiling the code
+> make
+
+Testing the code 
+> cd sample_input
+> bash run.sh
