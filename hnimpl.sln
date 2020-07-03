@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2pc", "2pc\2pc.vcxproj", "{FE58E562-5900-49F1-942A-8358FC1BDEAB}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mpc", "mpc\mpc.vcxproj", "{D3916472-4253-4565-94DD-2CC1B915379F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circtool", "circtool\circtool.vcxproj", "{5EAA7DFA-22F9-49C6-AD92-E1B5A97CF5F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE58E562-5900-49F1-942A-8358FC1BDEAB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FE58E562-5900-49F1-942A-8358FC1BDEAB}.Debug|Win32.Build.0 = Debug|Win32
+		{FE58E562-5900-49F1-942A-8358FC1BDEAB}.Release|Win32.ActiveCfg = Release|Win32
+		{FE58E562-5900-49F1-942A-8358FC1BDEAB}.Release|Win32.Build.0 = Release|Win32
+		{D3916472-4253-4565-94DD-2CC1B915379F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{D3916472-4253-4565-94DD-2CC1B915379F}.Debug|Win32.Build.0 = Debug|Win32
+		{D3916472-4253-4565-94DD-2CC1B915379F}.Release|Win32.ActiveCfg = Release|Win32
+		{D3916472-4253-4565-94DD-2CC1B915379F}.Release|Win32.Build.0 = Release|Win32
+		{5EAA7DFA-22F9-49C6-AD92-E1B5A97CF5F0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5EAA7DFA-22F9-49C6-AD92-E1B5A97CF5F0}.Debug|Win32.Build.0 = Debug|Win32
+		{5EAA7DFA-22F9-49C6-AD92-E1B5A97CF5F0}.Release|Win32.ActiveCfg = Release|Win32
+		{5EAA7DFA-22F9-49C6-AD92-E1B5A97CF5F0}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

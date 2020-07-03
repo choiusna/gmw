@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "2pc", "2pc\2pc.vcproj", "{773D9B9F-EDE7-407C-96D8-B040332AF1E8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mpc", "mpc\mpc.vcproj", "{C3A5B99B-0852-4FEE-B8D4-B6EF1E2E4EF3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "circtool", "circtool\circtool.vcproj", "{1C19A1E1-CCE7-4395-B3EC-1A4114210E35}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{773D9B9F-EDE7-407C-96D8-B040332AF1E8}.Debug|Win32.ActiveCfg = Debug|Win32
+		{773D9B9F-EDE7-407C-96D8-B040332AF1E8}.Debug|Win32.Build.0 = Debug|Win32
+		{773D9B9F-EDE7-407C-96D8-B040332AF1E8}.Release|Win32.ActiveCfg = Release|Win32
+		{773D9B9F-EDE7-407C-96D8-B040332AF1E8}.Release|Win32.Build.0 = Release|Win32
+		{C3A5B99B-0852-4FEE-B8D4-B6EF1E2E4EF3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C3A5B99B-0852-4FEE-B8D4-B6EF1E2E4EF3}.Debug|Win32.Build.0 = Debug|Win32
+		{C3A5B99B-0852-4FEE-B8D4-B6EF1E2E4EF3}.Release|Win32.ActiveCfg = Release|Win32
+		{C3A5B99B-0852-4FEE-B8D4-B6EF1E2E4EF3}.Release|Win32.Build.0 = Release|Win32
+		{1C19A1E1-CCE7-4395-B3EC-1A4114210E35}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1C19A1E1-CCE7-4395-B3EC-1A4114210E35}.Debug|Win32.Build.0 = Debug|Win32
+		{1C19A1E1-CCE7-4395-B3EC-1A4114210E35}.Release|Win32.ActiveCfg = Release|Win32
+		{1C19A1E1-CCE7-4395-B3EC-1A4114210E35}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

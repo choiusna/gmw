@@ -1,0 +1,49 @@
+CC=g++
+BIN=2pc.exe mpc.exe circtool.exe
+LIBRARIES=pthread
+SOURCES_UTIL=util/*.cpp
+OBJECTS_UTIL=util/*.o
+SOURCES_NTL=NTL/*.cpp
+OBJECTS_NTL=NTL/*.o
+SOURCES_2PC=2pc/*.cpp
+OBJECTS_2PC=2pc/*.o
+SOURCES_MPC=mpc/*.cpp
+OBJECTS_MPC=mpc/*.o
+SOURCES_CIRCTOOL=circtool/*.cpp
+OBJECTS_CIRCTOOL=circtool/*.o
+SOURCES_CIRCUIT=circuit/*.cpp
+OBJECTS_CIRCUIT=circuit/*.o
+INCLUDE=..
+
+all: ${BIN}
+
+2pc.exe: ${OBJECTS_2PC} ${OBJECTS_NTL} ${OBJECTS_UTIL} ${OBJECTS_CIRCUIT}
+	${CC} -o 2pc.exe ${CFLAGS} ${OBJECTS_2PC} ${OBJECTS_NTL} ${OBJECTS_UTIL} ${OBJECTS_CIRCUIT} -l${LIBRARIES} 
+
+mpc.exe: ${OBJECTS_MPC} ${OBJECTS_NTL} ${OBJECTS_UTIL} ${OBJECTS_CIRCUIT}
+	${CC} -o mpc.exe ${CFLAGS} ${OBJECTS_MPC} ${OBJECTS_NTL} ${OBJECTS_UTIL} ${OBJECTS_CIRCUIT} -l${LIBRARIES} 
+
+circtool.exe: ${OBJECTS_CIRCTOOL} ${OBJECTS_NTL} ${OBJECTS_UTIL} ${OBJECTS_CIRCUIT}
+	${CC} -o circtool.exe ${CFLAGS} ${OBJECTS_NTL} ${OBJECTS_UTIL} ${OBJECTS_CIRCTOOL} ${OBJECTS_CIRCUIT} -l${LIBRARIES} 
+
+${OBJECTS_2PC}: ${SOURCES_2PC}$  
+	@cd 2pc; ${CC} -c -I${INCLUDE} ${CFLAGS} *.cpp
+
+${OBJECTS_MPC}: ${SOURCES_MPC}$  
+	@cd mpc; ${CC} -c -I${INCLUDE} ${CFLAGS} *.cpp
+
+${OBJECTS_UTIL}: ${SOURCES_UTIL}$  
+	@cd util; ${CC} -c -I${INCLUDE} ${CFLAGS} *.cpp
+
+${OBJECTS_NTL}: ${SOURCES_NTL}$  
+	@cd NTL; ${CC} -c -I${INCLUDE} ${CFLAGS} *.cpp
+
+${OBJECTS_CIRCTOOL}: ${SOURCES_CIRCTOOL}$  
+	@cd circtool; ${CC} -c -I${INCLUDE} ${CFLAGS} *.cpp
+
+${OBJECTS_CIRCUIT}: ${SOURCES_CIRCUIT}$  
+	@cd circuit; ${CC} -c -I${INCLUDE} ${CFLAGS} *.cpp
+
+clean:
+	rm -rf ${OBJECTS_UTIL} ${OBJECTS_NTL} ${OBJECTS_2PC} ${OBJECTS_MPC} ${OBJECTS_CIRCTOOL} ${OBJECTS_CIRCUIT} ${BIN}
+

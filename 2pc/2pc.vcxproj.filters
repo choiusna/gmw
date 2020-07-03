@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="NTL">
+      <UniqueIdentifier>{6aabe82d-27fa-4efb-bc43-960912287c47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="circuit">
+      <UniqueIdentifier>{49ae0795-13ff-4a85-9f27-a03040ab2f46}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="server.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\util\config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\util\sha1.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NTL\ctools.cpp">
+      <Filter>NTL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NTL\lip.cpp">
+      <Filter>NTL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NTL\tools.cpp">
+      <Filter>NTL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\NTL\ZZ.cpp">
+      <Filter>NTL</Filter>
+    </ClCompile>
+    <ClCompile Include="..\circuit\circuit.cpp">
+      <Filter>circuit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\circuit\p2pcircuit.cpp">
+      <Filter>circuit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\circuit\sicircuit.cpp">
+      <Filter>circuit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\circuit\testadd.cpp">
+      <Filter>circuit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\circuit\testmult.cpp">
+      <Filter>circuit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\circuit\socialnet.cpp">
+      <Filter>circuit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\circuit\cloud.cpp">
+      <Filter>circuit</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\util\thread.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\util\socket.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\util\endpoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sha1.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="client.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="server.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\util\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="yao.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\util\typedefs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\c_lip.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\c_lip_impl.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\config.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\ctools.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\def_config.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\lip.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\mach_desc.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\new.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\tools.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\version.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\ZZ.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\vec_ZZ.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\NTL\vector.h">
+      <Filter>NTL</Filter>
+    </ClInclude>
+    <ClInclude Include="..\circuit\circuit.h">
+      <Filter>circuit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\circuit\p2pcircuit.h">
+      <Filter>circuit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\circuit\sicircuit.h">
+      <Filter>circuit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\circuit\testadd.h">
+      <Filter>circuit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\circuit\testmult.h">
+      <Filter>circuit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\circuit\socialnet.h">
+      <Filter>circuit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\circuit\cloud.h">
+      <Filter>circuit</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
